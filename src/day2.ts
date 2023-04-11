@@ -2542,12 +2542,57 @@ function incrementFromResult(playerChoice: string, oppChoice: string) {
   } else return
   }
 
+// for (let i=0; i<roundResults.length; i++) {
+//     incrementFromChoice(roundResults[i][1]);
+//     incrementFromResult(roundResults[i][1], roundResults[i][0])
+// }
+
+
+
+let correctRoundResults:any[] = [];
 for (let i=0; i<roundResults.length; i++) {
-    incrementFromChoice(roundResults[i][1]);
-    incrementFromResult(roundResults[i][1], roundResults[i][0])
+  let newRound: any[] = [];
+  newRound = newRound.concat(roundResults[i]);
+    if (newRound[1] === 'Y') {   // adds draw choice 
+        
+        if (newRound[0] == 'A') {
+            newRound.push('X');
+        } else if (newRound[0] == 'B') {
+            newRound.push('Y');
+        } else if (newRound[0] == 'C') {
+            newRound.push('Z')
+        }
+        
+    } 
+    else if (newRound[1] == 'X') {  // adds loss choice
+        if (newRound[0] == 'A') {
+            newRound.push('Z')
+        } else if (newRound[0] == 'B') {
+            newRound.push('X'); 
+        } else if (newRound[0] == 'C') {
+            newRound.push('Y')
+        }
+    }
+    else if (newRound[1] == 'Z') {  // adds win choice
+        if (newRound[0] == 'A') {
+            newRound.push('Y')
+        } else if (newRound[0] == 'B') {
+            newRound.push('Z'); 
+        } else if (newRound[0] == 'C') {
+            newRound.push('X')
+        }
+    }
+    correctRoundResults.push(newRound)
+}
+
+for (let i=0; i<correctRoundResults.length; i++) {
+    incrementFromChoice(correctRoundResults[i][2]);
+    incrementFromResult(correctRoundResults[i][2], correctRoundResults[i][0])
 }
 
 console.log(score);
+
+console.log(correctRoundResults)
 
   return;
 
