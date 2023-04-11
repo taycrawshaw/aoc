@@ -2,10 +2,10 @@ import e from "express";
 import { start } from "repl";
 
 export function day01() {
-   
-    
-const elves = 
-    `8890
+
+
+    const elves =
+        `8890
     13468
     5519
     4939
@@ -2248,48 +2248,48 @@ const elves =
     6039
     1513
     2696`
-    
 
-const elvesArray = elves.split(/\n\s*\n/);
-    
-let elvesProcessed: any[]= [];
 
-elvesArray.forEach(function (section) {
-    var result = section.split("\n")
-    let newArr: number[] = []
+    const elvesArray = elves.split(/\n\s*\n/);
 
-    result.forEach((newstring) => {
-    let removedSpaces =  parseInt(newstring.replace(/^\s+|\s+$/gm,''));
-    newArr.push(removedSpaces);
+    let elvesProcessed: any[] = [];
+
+    elvesArray.forEach(function (section) {
+        var result = section.split("\n")
+        let newArr: number[] = []
+
+        result.forEach((newstring) => {
+            let removedSpaces = parseInt(newstring.replace(/^\s+|\s+$/gm, ''));
+            newArr.push(removedSpaces);
+        })
+        elvesProcessed.push(newArr);
+    });
+
+
+    let elvesSummed: number[] = [];
+    elvesProcessed.forEach((elf) => {
+        let totalCarried = 0;
+        elf.forEach((item: number) => {
+            totalCarried += item;
+        })
+        elvesSummed.push(totalCarried)
     })
-    elvesProcessed.push(newArr);
-  });
-
-
-let elvesSummed: number[] = [];
-elvesProcessed.forEach((elf) => {
-    let totalCarried = 0;
-    elf.forEach((item: number) => {
-        totalCarried += item;
-    })
-    elvesSummed.push(totalCarried)
-    })
 
 
 
-elvesSummed.sort((a, b) => b - a);
-console.log(elvesSummed[0]);
+    elvesSummed.sort((a, b) => b - a);
+    console.log(elvesSummed[0]);
 
-let topThreeSummed = 0
+    let topThreeSummed = 0
 
-for(let i=0; i<3; i++) {
-topThreeSummed+=elvesSummed[i]
-}
-console.log(topThreeSummed);
+    for (let i = 0; i < 3; i++) {
+        topThreeSummed += elvesSummed[i]
+    }
+    console.log(topThreeSummed);
 
 
 
-return;
+    return;
 
 
 
