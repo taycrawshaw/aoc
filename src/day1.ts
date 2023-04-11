@@ -2275,8 +2275,17 @@ elvesProcessed.forEach((elf) => {
     elvesSummed.push(totalCarried)
     })
 
+
+
 elvesSummed.sort((a, b) => b - a);
 console.log(elvesSummed[0]);
+
+let topThreeSummed = 0
+
+for(let i=0; i<3; i++) {
+topThreeSummed+=elvesSummed[i]
+}
+console.log(topThreeSummed);
 
 
 
