@@ -2259,21 +2259,22 @@ elvesArray.forEach(function (section) {
     let newArr: number[] = []
 
     result.forEach((newstring) => {
-   let removedSpaces =  parseInt(newstring.replace(/^\s+|\s+$/gm,''));
-      newArr.push(removedSpaces);
+    let removedSpaces =  parseInt(newstring.replace(/^\s+|\s+$/gm,''));
+    newArr.push(removedSpaces);
     })
     elvesProcessed.push(newArr);
   });
 
-  
+
 let elvesSummed: number[] = [];
-  elvesProcessed.forEach((elf) => {
-let totalCarried = 0;
- elf.forEach((item: number) => {
-    totalCarried += item;
- })
- elvesSummed.push(totalCarried)
-})
+elvesProcessed.forEach((elf) => {
+    let totalCarried = 0;
+    elf.forEach((item: number) => {
+        totalCarried += item;
+    })
+    elvesSummed.push(totalCarried)
+    })
+
 elvesSummed.sort((a, b) => b - a);
 console.log(elvesSummed[0]);
 
