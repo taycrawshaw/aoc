@@ -2,16 +2,14 @@
 export function input(day: Function, placeholder: string) {
 
     let form = document.createElement("form")
-    let text = document.createElement("input");
+    let text = document.createElement("textarea");
     let btn = document.createElement("BUTTON")
-    text.type = "text";
+
  
     btn.setAttribute("class", "button");
-    text.setAttribute("class", "inputBox");
-    text.setAttribute("class", "text")
-
-
-    text.setAttribute("placeholder", placeholder)
+    text.setAttribute("class", "inputBox text");
+    text.setAttribute("placeholder", placeholder);
+    btn.style.padding = "10px";
     
     btn.addEventListener('click', function (event) {
         event.preventDefault();
